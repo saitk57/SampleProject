@@ -12,14 +12,7 @@ namespace SampleProject.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Boş geçilemez")]
-        [Display(Name = "Ad")]
-        [StringLength(50, ErrorMessage = "Max 50 karakter olmalıdır.")]
-
         public string Name { get; set; }
-
-        [Required(ErrorMessage = "Boş geçilemez")]
-        [Display(Name = "Kategori")]
 
         public  int CategoryId { get; set; }
 

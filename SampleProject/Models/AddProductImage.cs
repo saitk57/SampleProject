@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace SampleProject.Models
 {
-    public class Product
+    public class AddProductImage
     {
-        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -17,10 +16,7 @@ namespace SampleProject.Models
 
         public decimal Price { get; set; }
 
-        public string Image { get; set; }
+        public  IFormFile Image { get; set; }
 
-        public int SubCategoryId { get; set; }
-
-        public virtual SubCategory SubCategory { get; set; }
     }
 }
