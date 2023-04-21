@@ -1,0 +1,23 @@
+﻿@model SampleProject.Models.Category
+
+@{
+    ViewData["Title"] = "UpdateCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCategory", "Kategori", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Id)
+
+    <b>Kategori Adı</b>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+
+    <b>Durum</b>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info" style="background-color:#ff6a00">Kategori Güncelle</button>
+
+
+}
+

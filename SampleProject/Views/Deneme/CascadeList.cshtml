@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = null;
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<script src="~/NiceAdmin/js/jquery.js"></script>
+<script src="~/NiceAdmin/js/jquery-ui-1.10.4.min.js"></script>
+<script src="~/NiceAdmin/js/jquery-1.8.3.min.js"></script>
+
+<h1>CascadeList</h1>
+
+<form>
+    <select id="CategoryIndex" asp-items="@ViewBag.Categories">
+        <option>Kategori Seçin</option>
+    </select>
+
+    <select id="SubCategoryIndex">
+        <option value="-1">Alt Kategori Seçin</option>
+    </select>
+
+    <select id="ProductIndex">
+        <option>Alt Kategori Seçin</option>
+    </select>
+</form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#CategoryIndex").change(function () {
+            $("#SubCategoryIndex").empty();
+            $("#ProductIndex").empty();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("LoadSubCategory")',
+                dataType: 'json',
+                data: {
+                    id: $("CategoryIndex").val()
+                },
+
+                success: function (subcategories) {
+                    $("#SubCategoryIndex").append('<option value="' + -1 + '">' + "Alt kategori seçin" + '</option>');
+
+
+                    $.each(subcategories, function (i, subcategory) {
+                        $("#SubCategoryIndex").append('<option value="' + subcategory.value + '">' + subcategory.text + '</option>');
+                    });
+
+                },
+            });
+            return false;
+        });
+
+        $("#SubCategoryIndex").change(function () {
+            $("#ProductIndex").empty();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("LoadProduct")',
+                dataType: 'json',
+                data: {
+                    id: $("SubCategoryIndex").val()
+                },
+
+                success: function (products) {
+
+
+                    $.each(products, function (i, product) {
+                        $("#ProductIndex").append('<option value="' + product.value + '">' + product.text + '</option>');
+                    });
+
+                }
+
+
+            });
+            return false;
+        });
+
+</script>

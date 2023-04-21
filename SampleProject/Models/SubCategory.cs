@@ -16,6 +16,8 @@ namespace SampleProject.Models
 
         public  int CategoryId { get; set; }
 
+        public bool Durum { get; set; }
+
         public virtual Category Category { get; set; }
 
         public List<Product> Products { get; set; }

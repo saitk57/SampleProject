@@ -1,0 +1,25 @@
+﻿@model SampleProject.Models.SubCategory
+
+@{
+    ViewData["Title"] = "AddSubCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+
+    <b>Alt Kategori Adı</b>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+
+    <b>Kategori Adı</b>
+    @Html.DropDownListFor(x => x.Category.Id, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    <br />
+
+    <b>Durum</b>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+
+    <button class="btn btn-info">Alt Kategori Ekle</button>
+
+
+</form>

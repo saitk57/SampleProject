@@ -14,6 +14,8 @@ namespace SampleProject.Models
 
         public string Name { get; set; }
 
+        public bool Durum { get; set; }
+
         public List<SubCategory> SubCategories { get; set; }
 
 

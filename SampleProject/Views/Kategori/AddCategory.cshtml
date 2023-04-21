@@ -1,0 +1,23 @@
+﻿@model SampleProject.Models.Category
+
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+
+    <b>Kategori Adı</b>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+
+    <b>Durum</b>
+    @Html.TextBoxFor(x => x.Durum, new { @class = "form-control" })
+
+    <button class="btn btn-info">Kategori Ekle</button>
+
+
+
+</form>
+

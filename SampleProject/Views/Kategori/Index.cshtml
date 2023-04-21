@@ -1,0 +1,40 @@
+﻿@model List<SampleProject.Models.Category>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>AD</th>
+        
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Id</td>
+            <td>@x.Name</td>
+           
+            <td>@Html.ActionLink("Sil", "DeleteCategory", new { x.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize eminmisiniz?.')" })</td>
+            <td><a href="/Kategori/UpdateCategory/@x.Id" class="btn btn-success">Güncelle</a></td>
+
+
+        </tr>
+
+    }
+
+</table>
+
+<br />
+
+<a href="/Kategori/AddCategory/" class="btn btn-primary">Yeni Kategori Ekle</a>
+
+
