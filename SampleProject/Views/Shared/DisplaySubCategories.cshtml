@@ -1,0 +1,12 @@
+﻿
+@model SampleProject.Models.SubCategory
+
+<option value="">---Alt Kategori Seçin---</option>
+
+@if (ViewBag.SubCategoryList != null)
+{
+    foreach (var item in ViewBag.SubCategoryList)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}

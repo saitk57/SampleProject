@@ -1,0 +1,57 @@
+﻿@model SampleProject.Models.CascadingClass
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Cascading Dropdown List</h2>
+
+@if (ViewBag.CategoryList != null)
+{
+    @Html.DropDownListFor(m => m.KategoriID, ViewBag.CategoryList as SelectList, "---Kategori Seçin---", new { @class = "form-control" })
+}
+
+@Html.DropDownListFor(m => m.AltKategoriID, new SelectList(""), "---Alt Kategori Seçin---", new { @class = "form-control" })
+
+@Html.DropDownListFor(m => m.UrunID, new SelectList(""), "---Ürün Seçin---", new { @class = "form-control" })
+
+@*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+<script src="~/NiceAdmin/js/jquery-1.8.3.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#KategoriID").change(function () {
+            var kategoriid = $(this).val();
+            /*debugger*/
+            $.ajax({
+                type: "post",
+                url: "/Cascading/GetSubCategoryList?KategoriID=" + kategoriid,
+                contentType: "html",
+                success: function (response) {
+                    $("#AltKategoriID").empty();
+                    $("#AltKategoriID").append(response);
+                }
+            });
+        });
+
+        $("#AltKategoriID").change(function () {
+            var altkategoriid = $(this).val();
+            /*debugger*/
+            $.ajax({
+                type: "post",
+                url: "/Cascading/GetProductList?AltKategoriID=" + altkategoriid,
+                contentType: "html",
+                success: function (response) {
+                    $("#UrunID").empty();
+                    $("#UrunID").append(response);
+                }
+            });
+        });
+    });
+
+
+
+</script>

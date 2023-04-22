@@ -15,10 +15,16 @@ namespace SampleProject.Controllers
     {
         Context c = new Context();
 
-        public IActionResult Index(int page=1)
+        public IActionResult Index(/*int page=1*/)
         {
-            var liste = c.Products.Include(x => x.SubCategory.Category).ToList().ToPagedList(page,10);
+            var liste = c.Products.Include(x => x.SubCategory.Category).ToList();/*.ToPagedList(page,10);*/
 
+            return View(liste);
+        }
+
+        public IActionResult ProductList()
+        {
+            var liste = c.Products.Include(x => x.SubCategory.Category).ToList();
             return View(liste);
         }
 

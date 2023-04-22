@@ -1,0 +1,12 @@
+﻿@model SampleProject.Models.Product
+
+
+<option value="">---Ürün Seçin---</option>
+
+@if (ViewBag.productList != null)
+{
+    foreach (var item in ViewBag.productList)
+    {
+        <option value="@item.Value">@item.Text</option>
+    }
+}
