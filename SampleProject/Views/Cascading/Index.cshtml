@@ -5,15 +5,19 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Cascading Dropdown List</h2>
+<h2>Dropdown List ile Filtreleme</h2>
+
+<br />
 
 @if (ViewBag.CategoryList != null)
 {
     @Html.DropDownListFor(m => m.KategoriID, ViewBag.CategoryList as SelectList, "---Kategori Seçin---", new { @class = "form-control" })
 }
 
+<br />
 @Html.DropDownListFor(m => m.AltKategoriID, new SelectList(""), "---Alt Kategori Seçin---", new { @class = "form-control" })
 
+<br />
 @Html.DropDownListFor(m => m.UrunID, new SelectList(""), "---Ürün Seçin---", new { @class = "form-control" })
 
 @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@

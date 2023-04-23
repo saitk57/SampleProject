@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Content\Image\" />
     <Folder Include="wwwroot\PdfReports\" />
     <Folder Include="wwwroot\ProductImageFiles\" />
   </ItemGroup>

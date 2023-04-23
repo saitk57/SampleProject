@@ -13,14 +13,14 @@
         <tr>
             <th>ID</th>
             <th>AD</th>
-            @*<th>AÇIKLAMA</th>*@
+           
             <th>FİYAT</th>
             <th>RESİM</th>
-            <th>ALTKATEGORİ</th>
-            <th>KATEGORİ</th>
+            @*<th>ALTKATEGORİ</th>
+            <th>KATEGORİ</th>*@
             <th>Sil</th>
             <th>Güncelle</th>
-
+            <th>Detaylar</th>
         </tr>
 
 
@@ -34,14 +34,14 @@
             <tr>
                 <td>@x.Id</td>
                 <td>@x.Name</td>
-                @*<td>@x.Description</td>*@
+                
                 <td>@x.Price</td>
                 <td><img src="~/ProductImageFiles/@x.Image" width="65" height="110" alt="" /></td>
-                <td>@x.SubCategory.Name</td>
-                <td>@x.SubCategory.Category.Name</td>
+                @*<td>@x.SubCategory.Name</td>
+                <td>@x.SubCategory.Category.Name</td>*@
                 <td>@Html.ActionLink("Sil", "DeleteProduct", new { x.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize eminmisiniz?.')" })</td>
                 <td><a href="/Admin/UpdateProduct/@x.Id" class="btn btn-success">Güncelle</a></td>
-
+                <td><a href="/Admin/ProductDetail/@x.Id" class="btn btn-primary">Ürün Detay</a></td>
 
             </tr>
 

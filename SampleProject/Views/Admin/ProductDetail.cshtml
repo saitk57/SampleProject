@@ -1,0 +1,73 @@
+﻿@model SampleProject.Models.Product
+
+
+@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            
+
+            <div class="col-sm-9 padding-right">
+                <div class="product-details">
+                    <!--product-details-->
+                    <div class="col-sm-5">
+                        <div class="view-product">
+                            <img src="~/ProductImageFiles/@Model.Image" style="width:300px; height:240px; margin-top:20px" alt="@Model.Name" />
+
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="product-information">
+
+                            <h2> <b>@Model.Name</b></h2>
+
+
+                            <span>
+                                <span><b>@Model.Price</b> TL</span>
+
+
+                            </span>
+                            <p><b>Kategori:</b> @Model.SubCategory.Category.Name</p>
+
+                            <p><b>Alt Kategori:</b>@Model.SubCategory.Name</p>
+                            @if (Model.Stock > 0)
+                            {
+                                <p><b>Stok:</b>Var</p>
+                            }
+                            else
+                            {
+                                <p><b>Stok:</b>Yok</p>
+                            }
+
+
+
+                            <p><b>Açıklama:</b> @Model.Description</p>
+                            <p><b>Ekleme Tarihi:</b> @Model.Tarih.ToString("dd.MM.yyyy")</p>
+                            <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
+                        </div><!--/product-information-->
+                    </div>
+                   
+
+                    <!-- Modal -->
+                    
+
+
+                    <hr />
+                    
+                </div><!--/product-details-->
+
+
+
+                
+
+            </div>
+        </div>
+    </div>
+</section>
+

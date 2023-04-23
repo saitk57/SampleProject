@@ -28,6 +28,12 @@ namespace SampleProject.Controllers
             return View(liste);
         }
 
+        public IActionResult ProductDetail(int id)
+        {
+            var liste = c.Products.Include(x => x.SubCategory.Category).Where(x => x.Id == id).FirstOrDefault();
+            return View(liste);
+        }
+
         public IActionResult AddProduct()
         {
             List<SelectListItem> degerler = (from x in c.SubCategories.ToList()

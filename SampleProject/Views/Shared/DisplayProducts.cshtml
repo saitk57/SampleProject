@@ -4,9 +4,12 @@
 <option value="">---Ürün Seçin---</option>
 
 @if (ViewBag.productList != null)
-{
-    foreach (var item in ViewBag.productList)
     {
-        <option value="@item.Value">@item.Text</option>
+        foreach (var item in ViewBag.productList)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+
+
     }
-}
+

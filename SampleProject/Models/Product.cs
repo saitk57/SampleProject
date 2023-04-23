@@ -19,6 +19,10 @@ namespace SampleProject.Models
 
         public string Image { get; set; }
 
+        public int Stock { get; set; }
+
+        public DateTime Tarih { get; set; }
+
         public int SubCategoryId { get; set; }
 
         public virtual SubCategory SubCategory { get; set; }
