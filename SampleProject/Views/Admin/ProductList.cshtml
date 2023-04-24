@@ -42,7 +42,7 @@
                 <th>KATEGORİ</th>
                 <th>Sil</th>
                 <th>Güncelle</th>
-
+                <th>Detay</th>
             </tr>
 
 
@@ -51,19 +51,19 @@
 
         @foreach (var x in Model)
         {
-            <tr>
-                <td>@x.Id</td>
-                <td>@x.Name</td>
-                @*<td>@x.Description</td>*@
-                <td>@x.Price</td>
-                <td><img src="~/ProductImageFiles/@x.Image" width="65" height="110" alt="" /></td>
-                <td>@x.SubCategory.Name</td>
-                <td>@x.SubCategory.Category.Name</td>
-                <td>@Html.ActionLink("Sil", "DeleteProduct", new { x.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize eminmisiniz?.')" })</td>
-                <td><a href="/Admin/UpdateProduct/@x.Id" class="btn btn-success">Güncelle</a></td>
+    <tr>
+        <td>@x.Id</td>
+        <td>@x.Name</td>
+        @*<td>@x.Description</td>*@
+        <td>@x.Price</td>
+        <td><img src="~/ProductImageFiles/@x.Image" width="65" height="110" alt="" /></td>
+        <td>@x.SubCategory.Name</td>
+        <td>@x.SubCategory.Category.Name</td>
+        <td>@Html.ActionLink("Sil", "DeleteProduct", new { x.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize eminmisiniz?.')" })</td>
+        <td><a href="/Admin/UpdateProduct/@x.Id" class="btn btn-success">Güncelle</a></td>
+        <td><a href="/Admin/ProductDetail/@x.Id" class="btn btn-primary">Ürün Detay</a></td>
 
-
-            </tr>
+    </tr>
 
         }
 
@@ -72,7 +72,8 @@
 
     <br />
 
-    <td><a href="/Admin/Index/" class="btn btn-success">Admin Sayfasına Dön</a></td>
+    <td><a href="/Kategori/Index/" class="btn btn-success">Admin Sayfasına Dön</a></td>
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>

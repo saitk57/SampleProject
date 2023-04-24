@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SampleProject.Models;
 using System;
 using System.Collections.Generic;
@@ -49,6 +50,12 @@ namespace SampleProject.Controllers
         {
             var product = c.Products.Where(z => z.SubCategoryId == id).ToList();
             return Json(new SelectList(product, "Id", "Name"));
+        }
+
+        public IActionResult ProductList2()
+        {
+            var liste = c.Products.Include(x => x.SubCategory.Category).ToList();
+            return View(liste);
         }
     }   
 

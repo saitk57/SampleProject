@@ -50,7 +50,7 @@ namespace SampleProject
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Admin}/{action=Index}/{id?}");
+                    pattern: "{controller=Admin}/{action=ProductList}/{id?}");
             });
         }
     }
