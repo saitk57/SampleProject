@@ -35,11 +35,27 @@
                     <label>Ürün Resmi</label>
                     <input type="file" name="Image" />
                 </div>
-                
+
+
                 <br />
+                @*<div class="form-group">
+            <label>Fiyat</label>
+            <input type="text" class="form-control" name="Price" value="@Model.Price" />
+
+        </div>*@
                 <div class="form-group">
                     <label>Fiyat</label>
-                    <input type="text" class="form-control" name="Price" value="@Model.Price" />
+                    <input type="text" id="Price" name="Price" value="@Model.Price" class="form-control" required />
+
+                </div>
+                <div class="form-group">
+                    <label>Ekleme Tarihi</label>
+                    <input type="text" name="Tarih" id="ekleme_tarihi" class="date" value="@Model.Tarih.ToString("dd.MM.yyyy")" required />
+
+                </div>
+                <div class="form-group">
+                    <label>Stok</label>
+                    <input type="text" id="Price" name="Stock" class="form-control" value="@Model.Stock" required />
 
                 </div>
                 <br />

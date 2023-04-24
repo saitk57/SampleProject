@@ -111,9 +111,11 @@ namespace SampleProject.Controllers
                 
             }
 
-            urn.Name = p.Name;
-            urn.Price = p.Price;
-            urn.Description = p.Description;
+            urn.Name = product.Name;
+            urn.Price = product.Price;
+            urn.Description = product.Description;
+            urn.Stock = product.Stock;
+            urn.Tarih = product.Tarih;
 
             c.SaveChanges();
             return RedirectToAction("Index");
