@@ -36,7 +36,7 @@ namespace SampleProject.Controllers
         public IActionResult GetProductList(int AltKategoriID)
         {
             List<Product> products = c.Products.Where(x => x.SubCategoryId == AltKategoriID).ToList();
-            ViewBag.productList = new SelectList(products, "Id", "Name");
+            ViewBag.productList = /*new SelectList(products, "Id", "Name");*/ products;
             return PartialView("DisplayProducts");
         }
     }
