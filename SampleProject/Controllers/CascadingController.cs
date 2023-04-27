@@ -16,8 +16,15 @@ namespace SampleProject.Controllers
 
         public IActionResult Index()
         {
+
+            var UrunList = c.Products.ToList();
+
+            ViewBag.urnlist = UrunList;
+
             ViewBag.CategoryList = new SelectList(GetCategoryList(), "Id", "Name");
             return View();
+
+            
         }
 
         public List<Category> GetCategoryList()
